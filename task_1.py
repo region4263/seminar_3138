@@ -16,5 +16,5 @@ def check(a: int, b :int) -> bool:
 
 if __name__ == "__main__":
     result = check(int(input('Введите первое число: ')),
-                   int(input('Введите первое второе: ')))
+                   int(input('Введите второе число: ')))
     print(f'Одно число является квадратом другого: {"да" if result else "нет"}')
