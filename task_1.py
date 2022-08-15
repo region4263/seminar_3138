@@ -8,11 +8,15 @@
     - 25, 5 -> да
     - 8,9 -> нет
 """
-def check(a: int, b :int) -> bool:
+def check(a: int, b: int) -> bool:
     if a > b:
         a, b = b, a
     return a ** 2 == b
 
+
+def f_sum(a: int, b: int) -> int:
+    return a + b
+    
 
 if __name__ == "__main__":
     result = check(int(input('Введите первое число: ')),
