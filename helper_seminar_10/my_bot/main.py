@@ -3,6 +3,7 @@ import pathlib
 import asyncio
 from aiogram import Bot, Dispatcher, types, executor
 from configparser import ConfigParser
+from logic import get_list_elements, mass_operation, doing_simple
 
 
 BOT_DIR = pathlib.Path(__file__).parent
@@ -35,8 +36,12 @@ async def cats(message: types.Message):
 
 
 @dp.message_handler()
-async def echo(message: types.Message):
-    await message.answer(message.text)
+async def main(message: types.Message):
+    expression: str = message.text
+    arr = get_list_elements(expression)
+    arr = doing_simple(arr)
+    result = mass_operation(arr)
+    await message.answer(f'Результат выражения\n{expression}={result}')
 
 
 if __name__ == '__main__':
